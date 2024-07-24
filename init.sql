@@ -1,3 +1,5 @@
+USE guestbook;
+
 CREATE TABLE entries (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
