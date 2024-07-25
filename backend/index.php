@@ -1,11 +1,14 @@
 <?php
-header('Content-Type: application/json');
 
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: http://34.229.17.12:3000/'); // Replace with your frontend origin
+header('Access-Control-Allow-Methods: GET, POST'); // Allow GET and POST methods
+header('Access-Control-Allow-Headers: Content-Type');
 // Replace with your database credentials
-$servername = "your_servername";
-$username = "your_username";
-$password = "your_password";
-$dbname = "your_database";
+$servername = "db";
+$username = "root";
+$password = "root@123";
+$dbname = "guestbook";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
