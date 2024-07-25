@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: http://34.229.17.12:3000/'); // Replace with your frontend origin
+header('Access-Control-Allow-Origin: http://localhost:3000/'); // Replace with your frontend origin
 header('Access-Control-Allow-Methods: GET, POST'); // Allow GET and POST methods
 header('Access-Control-Allow-Headers: Content-Type');
 // Replace with your database credentials
