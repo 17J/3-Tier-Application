@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 function App() {
@@ -47,19 +48,34 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="guestbook-container">
       <h1>Guestbook</h1>
-      <ul>
-        {entries.map(entry => (
-          <li key={entry.id}>{entry.name}: {entry.message}</li>
+      <ul className="entries-list">
+        {entries.map((entry) => (
+          <li key={entry.id} className="entry">
+            {entry.name}: {entry.message}
+          </li>
         ))}
       </ul>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <label htmlFor="name">Name:</label>
-        <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="input"
+        />
         <label htmlFor="message">Message:</label>
-        <textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} />
-        <button type="submit">Submit</button>
+        <textarea
+          id="message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className="textarea"
+        />
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
       </form>
     </div>
   );
