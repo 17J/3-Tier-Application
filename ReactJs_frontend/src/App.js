@@ -12,6 +12,7 @@ function App() {
         const response = await fetch('http://44.222.204.142:8080/backend/index.php'); // Replace with your API endpoint
         const data = await response.json();
         setEntries(data);
+	      
       } catch (error) {
         console.error('Error fetching entries:', error);
       }
@@ -50,13 +51,6 @@ function App() {
   return (
     <div className="guestbook-container">
       <h1>Guestbook</h1>
-      <ul className="entries-list">
-        {entries.map((entry) => (
-          <li key={entry.id} className="entry">
-            {entry.name}: {entry.message}
-          </li>
-        ))}
-      </ul>
       <form onSubmit={handleSubmit} className="form">
         <label htmlFor="name">Name:</label>
         <input
@@ -77,6 +71,13 @@ function App() {
           Submit
         </button>
       </form>
+      <ul className="entries-list">
+	  {entries.map((entry) => (
+		  <li key={entry.id} className="entry">
+		     {entry.name}: {entry.message}
+		  </li>  
+       ))}
+      </ul>
     </div>
   );
 }

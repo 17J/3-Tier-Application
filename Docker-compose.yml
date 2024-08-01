@@ -6,7 +6,6 @@ services:
   # Use a more descriptive service name
   frontend:
     build: ./ReactJs_frontend  # Build the frontend image from the current directory
-    command: npm start
     ports:
       - "3000:3000"
     # volumes:
