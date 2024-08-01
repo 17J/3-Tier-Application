@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpapp-deployment
+  labels:
+    app: phpapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpapp
+  template:
+    metadata:
+      labels:
+        app: phpapp 
+    spec:
+      containers:
+      - name: phpserver
+        image: 17rj/phpapp:latest
+        ports:
+        - containerPort: 8080
+        
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpapp-service
+spec:
+  selector:
+    app: phpapp 
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 80
+    nodePort: 31110

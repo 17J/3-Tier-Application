@@ -1,0 +1,70 @@
+/* Style the guestbook container */
+.guestbook-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto 0;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: sans-serif;
+  background-color: rgba(27, 8, 97, 0.2);
+}
+
+/* Style the heading */
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Style the entries list */
+.entries-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style the individual entries */
+.entry {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style the form */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Style the labels */
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style the input and textarea fields */
+.input,
+.textarea {
+  padding: 10px;
+  border: 1px solid #c47f7f;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 16px;
+  resize: none;
+
+}
+
+/* Style the submit button */
+.submit-button {
+  background-color: #486b49;
+  /* Green */
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}

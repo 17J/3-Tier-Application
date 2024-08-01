@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    service: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: mysql
+  template:
+    metadata:
+      labels:
+        service: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: 17rj/mysqlMultiTier:latest
+        imagePullPolicy: always
+        ports:
+        - containerPort: 3306
+      restartPolicy: Always
+     
+      
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: mysql
+  name: mysql
+spec:
+  ports:
+  - name: mysql
+    port: 3306
+    targetPort: 3306
+  selector:
+    service: mysql
+
+
+    
