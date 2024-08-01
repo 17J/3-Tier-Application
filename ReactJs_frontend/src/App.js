@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const fetchEntries = async () => {
       try {
-        const response = await fetch('/backend/index.php'); // Replace with your API endpoint
+        const response = await fetch('http://44.222.204.142:8080/backend/index.php'); // Replace with your API endpoint
         const data = await response.json();
         setEntries(data);
       } catch (error) {
@@ -24,7 +24,7 @@ function App() {
     console.log(e.target.value)
     e.preventDefault();
     try {
-      const response = await fetch('/backend/index.php', {
+      const response = await fetch('http://44.222.204.142:8080/backend/index.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
