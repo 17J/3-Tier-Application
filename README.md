@@ -1,1 +1,3 @@
-# 3-Tier-Application
+Simple Message Application
+--------------------------
+
