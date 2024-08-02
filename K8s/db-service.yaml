@@ -5,9 +5,7 @@ metadata:
   name: mysql-secret
 data:
   MYSQL_ROOT_PASSWORD: cm9vdEAxMjMK
-
-
-
+  MYSQL_NAME: cm9vdsa
 ---
 apiVersion: v1
 kind: Service
