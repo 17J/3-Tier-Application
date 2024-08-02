@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS guestbook;
-CREATE USER 'root'@'db' IDENTIFIED BY 'root@123';
-GRANT ALL PRIVILEGES ON guestbook.* TO 'root'@'db';
+CREATE USER 'root'@'${MYSQL_HOST}' IDENTIFIED BY '${MYSQL_PASSWORD}';
+GRANT ALL PRIVILEGES ON guestbook.* TO 'root'@'${MYSQL_HOST}';
 
 USE guestbook;
 

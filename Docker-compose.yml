@@ -1,34 +1,24 @@
 version: '3'
-
-  
-
 services:
   # Use a more descriptive service name
   frontend:
     build: ./ReactJs_frontend  # Build the frontend image from the current directory
     ports:
       - "3000:3000"
-    # volumes:
-    #   - .:/var/www/html   # Map container port 8085 to host port 8080 (standard HTTP)
-    # environment:
-    #  - MYSQL_HOST=db  # Use the service name of the database container
-    #  - MYSQL_NAME=guestbook # Standard MySQL port  # Add other environment variables from .env (see note)
-    #  - MYSQL_PASSWORD=root@123
-    #  - MYSQL_USER=root
     depends_on:
-      - backend  # Ensure database is ready before starting frontend
+      - backend  # Ensure backend is ready before starting frontend
     
   backend:
-    build: ./backend  # Build the frontend image from the current directory
+    build: ./backend  # Build the backend image from the current directory
     ports:
       - "8080:80"
     volumes:
       - .:/var/www/html   # Map container port 8085 to host port 8080 (standard HTTP)
     environment:
-      - MYSQL_HOST=db  # Use the service name of the database container
-      - MYSQL_NAME=guestbook # Standard MySQL port  # Add other environment variables from .env (see note)
-      - MYSQL_PASSWORD=root@123
-      - MYSQL_USER=root
+      - MYSQL_HOST=${MYSQL_HOST}  # Use the service name of the database container
+      - MYSQL_NAME=${MYSQL_NAME} # Standard MySQL port  # Add other environment variables from .env (see note)
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
     depends_on:
       - db  # Ensure database is ready before starting frontend
     
@@ -39,9 +29,9 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=root@123  # Consider using a stronger password
-      - MYSQL_NAME=guestbook
-      - MYSQL_PASSWORD=root@123
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}  # Consider using a stronger password
+      - MYSQL_NAME=${MYSQL_NAME}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:

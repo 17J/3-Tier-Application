@@ -5,10 +5,11 @@ header('Access-Control-Allow-Origin: *'); // Replace with your frontend origin
 header('Access-Control-Allow-Methods: GET, POST'); // Allow GET and POST methods
 header('Access-Control-Allow-Headers: Content-Type');
 // Replace with your database credentials
-$servername = "db";
-$username = "root";
-$password = "root@123";
-$dbname = "guestbook";
+// $servername = "db";
+// $username = "root";
+// $password = "root@123";
+// $dbname = "guestbook";
+require_once 'database_config.php';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
