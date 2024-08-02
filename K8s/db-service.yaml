@@ -1,8 +1,19 @@
 ---
 apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+data:
+  MYSQL_ROOT_PASSWORD: cm9vdEAxMjMK
+
+
+
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: mysql-service
+  namespace: webapps
 spec:
   selector:
     app: mysql
@@ -17,6 +28,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: mysql-pv-volume
+  namespace: webapps
 spec:
   capacity:
     storage: 10Gi
@@ -29,7 +41,8 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim
+  name: mysql-pv-claim1
+  namespace: webapps
 spec:
   accessModes:
     - ReadWriteOnce
